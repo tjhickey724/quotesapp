@@ -1,0 +1,27 @@
+<template name="quotelist">
+	<div>
+		<table class="table table-striped" id="quotelist">
+			<tbody>
+			{{#each quotes}}
+				{{> quoteLine}}
+			{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>
+
+<template name="quoteLine">
+	<tr>
+		<td class="text-center">
+			<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
+		</td>
+		<td>
+			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span>
+		</td>	
+		<td>
+			<button class="btn btn-small btn-warning delete">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+		</td>
+	</tr>
+</template>

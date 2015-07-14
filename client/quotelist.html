@@ -1,5 +1,5 @@
 <template name="quotelist">
-	<h2>The most recent quotes are </h2>
+	<h2>The most recent {{showNum}} quotes are </h2>
 	<div>
 		<table class="table table-striped" id="quotelist">
 			<tbody>
@@ -21,10 +21,10 @@
 			<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
 		</td>
 		<td>
-			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span>
+			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span> about {{subject}}
 		</td>	
 
-		<td> as quoted by {{createdBy}} at {{createdAt}}</td>
+		<td> as quoted by {{_id}}:{{createdBy}} at {{createdAt}}</td>
 
 		<td>
 			{{#if isOwner}}

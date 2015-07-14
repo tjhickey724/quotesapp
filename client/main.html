@@ -5,14 +5,8 @@
 <body>
 	<div class="container">
 		
-		<div class="jumbotron">
-			<h1>Crowdsourced Quotes</h1>
-			<p> 
-				The goal of this appkit is to show you the simplest way 
-				to share information between all users of your webapp.
-			</p>
-		</div>
-
+		{{> header}}
+		
 		{{#if currentUser}}
 			{{> newquote}}
 		{{else}}
@@ -21,7 +15,10 @@
 
 		{{> loginButtons}}
 	
+		{{> brandPromise}}
+
 		{{> quotelist}}
+
 
 		
 		{{> about}}

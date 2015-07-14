@@ -7,24 +7,32 @@
   
   Template.newquote.events({
 	  
-	  'click button#saveQuote': function(event){
+	  //'click button#saveQuote': function(event){
+	  	'submit form#newquote': function(event) {
 		  // read the author and quote text from the browser window
 		  var newQuoteText = $("#newquotetext").val();	
 		  var newAuthor = $("#newauthor").val();
+		  var newSubject = $("#newsubject").val();
 		  
 		  // and erase the fields so the user can add another quote later
 		  $("#newauthor").val("");						
-		  $("#newquotetext").val("");						
+		  $("#newquotetext").val("");
+		  $("#newsubject").val("");						
 		  
 		  // create a new quote object and upload it to the server!
 		  var quote = 
 		  	{quote:newQuoteText, 
 		  		author:newAuthor, 
+		  		subject:newSubject,
 		  		likes:1, 
 		  		createdAt: new Date(),
 		  		createdBy: Meteor.user().emails[0].address,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote
-		  Quotes.insert(quote); 
+		 if (newQuoteText.trim()!= "")
+		  	Quotes.insert(quote); 
+		 else {
+		 	console.log(Meteor.user().emails[0].address+" is fooling around!");
+		 }
 	  }
   	
   })

@@ -13,6 +13,7 @@
 		  var newQuoteText = $("#newquotetext").val();	
 		  var newAuthor = $("#newauthor").val();
 		  var newSubject = $("#newsubject").val();
+		  var myEmail = Meteor.user().emails[0].address;
 		  
 		  // and erase the fields so the user can add another quote later
 		  $("#newauthor").val("");						
@@ -24,9 +25,10 @@
 		  	{quote:newQuoteText, 
 		  		author:newAuthor, 
 		  		subject:newSubject,
-		  		likes:1, 
+		  		likes:0, 
+				likers:[],
 		  		createdAt: new Date(),
-		  		createdBy: Meteor.user().emails[0].address,
+		  		createdBy: myEmail,
 		  		user:Meteor.userId()};  // create the JSON object representing the quote
 		 if (newQuoteText.trim()!= "")
 		  	Quotes.insert(quote); 

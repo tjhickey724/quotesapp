@@ -18,14 +18,18 @@
 <template name="quoteLine">
 	<tr>
 		<td class="text-center">
-			<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
+			{{#if alreadyLiked}} 
+				{{likes}} likes!
+			{{else}}
+				<button class="btn btn-sm btn-info like">{{likes}} Likes</button>
+			{{/if}}
 		</td>
 		<td>
-			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span> about {{subject}}
+			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span> <br> about {{subject}}
 		</td>	
 
-		<td> as quoted by {{_id}}:{{createdBy}} at {{createdAt}}</td>
-
+		<td> as quoted by {{createdBy}}<br> at {{createdAt}}</td>
+		
 		<td>
 			{{#if isOwner}}
 			<button class="btn btn-small btn-warning delete">
@@ -33,5 +37,6 @@
 			</button>
 			{{/if}}
 		</td>
+
 	</tr>
 </template>

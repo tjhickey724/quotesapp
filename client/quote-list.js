@@ -1,6 +1,6 @@
 Template.quotelist.helpers({
   quotes: function () {
-	  return Quotes.find({}); // we are finding all of the quotes on the server to show on the client
+	  return Quotes.find({},{limit:3,sort:{createdAt:-1}}); // we are finding all of the quotes on the server to show on the client
   }
 });
 
@@ -16,3 +16,11 @@ Template.quotelist.events({
 	  Quotes.remove(this._id);
   }
 });
+
+Template.quoteLine.helpers({
+
+  isOwner: function(){
+    return (this.user == Meteor.userId()) || (Meteor.userId()=="79ECyD4M2ek4Ffwtj");
+    
+  }
+})

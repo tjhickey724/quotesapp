@@ -17,7 +17,13 @@
 		  $("#newquotetext").val("");						
 		  
 		  // create a new quote object and upload it to the server!
-		  var quote = {quote:newQuoteText, author:newAuthor, likes:1};  // create the JSON object representing the quote
+		  var quote = 
+		  	{quote:newQuoteText, 
+		  		author:newAuthor, 
+		  		likes:1, 
+		  		createdAt: new Date(),
+		  		createdBy: Meteor.user().emails[0].address,
+		  		user:Meteor.userId()};  // create the JSON object representing the quote
 		  Quotes.insert(quote); 
 	  }
   	

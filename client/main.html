@@ -13,9 +13,16 @@
 			</p>
 		</div>
 
+		{{#if currentUser}}
+			{{> newquote}}
+		{{else}}
+			<p>You need to log in to add new quotes</p>
+		{{/if}}
+
+		{{> loginButtons}}
+	
 		{{> quotelist}}
-		
-		{{> newquote}}
+
 		
 		{{> about}}
 		

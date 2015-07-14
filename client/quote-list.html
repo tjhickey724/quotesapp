@@ -1,4 +1,5 @@
 <template name="quotelist">
+	<h2>The most recent quotes are </h2>
 	<div>
 		<table class="table table-striped" id="quotelist">
 			<tbody>
@@ -10,6 +11,8 @@
 	</div>
 </template>
 
+
+
 <template name="quoteLine">
 	<tr>
 		<td class="text-center">
@@ -18,10 +21,15 @@
 		<td>
 			<span class="author">{{author}}</span> says <span class="quote">{{quote}}</span>
 		</td>	
+
+		<td> as quoted by {{createdBy}} at {{createdAt}}</td>
+
 		<td>
+			{{#if isOwner}}
 			<button class="btn btn-small btn-warning delete">
 				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 			</button>
+			{{/if}}
 		</td>
 	</tr>
 </template>

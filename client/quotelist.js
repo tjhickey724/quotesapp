@@ -9,6 +9,9 @@ Template.quotelist.helpers({
   },
   showNum: function(){
     return Session.get("showNum");
+  },
+  numQuotes: function(){
+	  return Quotes.find().count();
   }
 });
 
